@@ -81,11 +81,10 @@ def dados_calculate(acao):
     ax2.axhline(30, color='green', linestyle='--', alpha=0.5)
     ax2.set_ylabel('RSI')
     ax2.grid(True)
-    plt.show()
     
     nome_arquivo = f"analise_pro_{acao}.png"
     plt.tight_layout()
-    plt.savefig(nome_arquivo)
+    plt.savefig(nome_arquivo, dpi=150, bbox_inches='tight')
     plt.close()
     print(f"✅ Gráfico salvo: {nome_arquivo}")
 
