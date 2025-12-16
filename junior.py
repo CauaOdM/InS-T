@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 load_dotenv(".env.local")
 genai.configure(api_key=os.getenv("API_KEY"))
 
-# Função para calcular o RSI 
+# Calculo do RSI 
 def calcular_rsi(dados, janela=14):
     delta = dados.diff()
     ganho = (delta.where(delta > 0, 0)).rolling(window=janela).mean()
@@ -29,7 +29,7 @@ def dados_calculate(acao):
         print("Ação não encontrada!")
         return
     
-    # Selecionar a coluna de preços (fechamento)
+    # Seleciona a coluna de preços
     if 'Close' in dados.columns:
         series_precos = dados['Close']
     else:
@@ -42,7 +42,7 @@ def dados_calculate(acao):
     
     precos_numpy = series_precos.values.flatten()
 
-    # Média móvel de 20 dias (NumPy)
+    # Média móvel de 20 dias
     janela = 20
     weights = np.ones(janela) / janela
     media_movel = np.convolve(precos_numpy, weights, mode='valid')
