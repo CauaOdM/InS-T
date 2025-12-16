@@ -1,22 +1,21 @@
-# InFinance – Analista Técnico Junior (powered by IA)
+# InS&T – Analista Técnico Junior para S&T (powered by IA)
 
-> ⚠️Este README foi escrito por IA generativa, e o código também conta com trechos assistidos por IA (marcados ao longo do arquivo). Use com senso crítico.
+> ⚠️ Este README foi escrito por IA generativa, e o código também conta com trechos assistidos por IA (marcados ao longo do arquivo). Use com senso crítico.
 
 Autor: [CauaOdM](https://github.com/CauaOdM) — estudante de Engenharia de Computação no Insper.
 
-Inspiração do nome: "InFinance" faz homenagem a uma entidade estudantil do Insper dedicada a capacitar alunos para o mercado financeiro.
 
-## O que é o InFinance?
-Um “analista técnico júnior” de linha de comando que:
+## O que é o InS&T?
+Um “analista técnico júnior” de linha de comando com foco na área de Sales & Trading (S&T), projetado como suporte técnico à tomada de decisão. Ele:
 - Baixa cotações de qualquer ticker via `yfinance` (ex.: PETR4.SA, AAPL, TSLA).
 - Calcula rapidamente indicadores clássicos: RSI, média móvel simples (20) e volatilidade dos retornos.
 - Gera um gráfico elegante (preço + média em cima; RSI embaixo) salvo como `analise_pro_<TICKER>.png`.
-- Conversa com o modelo Gemini para dar um veredito textual (COMPRA/NEUTRO/VENDA) bem direto.
+- Conversa com o modelo Gemini para fornecer um veredito textual (COMPRA/NEUTRO/VENDA), funcionando como apoio sintético e objetivo para decisões rápidas.
 
-## Por que é útil?
-- Panorama técnico em segundos, sem abrir planilhas ou plataformas pesadas.
-- Gráfico pronto para compartilhar ou embutir em relatórios rápidos.
-- Uma opinião resumida via IA para complementar (não substituir) sua leitura de mercado.
+## Por que é útil? 
+- Suporte técnico à tomada de decisão para mesas de S&T, traders e sales: consolida sinais de tendência e momentum em segundos.
+- Gráfico pronto para compartilhar ou embutir em relatórios e briefs intra‑day.
+- Uma opinião resumida via IA para complementar (não substituir) a leitura humana do mercado.
 
 ## Como o fluxo acontece (passo a passo)
 1) Você informa o ticker no terminal.
@@ -52,7 +51,7 @@ Um “analista técnico júnior” de linha de comando que:
 	- PNG: `analise_pro_<TICKER>.png` com preço, média e RSI.
 	- Texto no terminal: resumo com veredito da IA.
 
-## Como rodar:
+## Como rodar
 1. Crie `.env.local` com `API_KEY=<sua_chave_gemini>`.
 2. Instale dependências: `pip install -r requirements.txt`.
 3. Rode: `python junior.py` e digite o ticker.
@@ -64,4 +63,4 @@ Um “analista técnico júnior” de linha de comando que:
 - Registrar histórico das análises em CSV/SQLite para acompanhar decisões ao longo do tempo.
 - Criar uma interface web simples para visualizar gráficos e laudos em segundos.
 
-Obrigado pelo tempo e por experimentar o InFinance! 🚀🎉
+Obrigado pelo tempo e por experimentar o InS&T! 🚀🎉
