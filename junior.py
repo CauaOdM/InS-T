@@ -38,10 +38,11 @@ def dados_calculate(acao):
     # Média móvel de 20 dias
     janela = 20
     weights = np.ones(janela) / janela
-    media_movel = np.convolve(series_precos, weights, mode='valid')
+    precos_numpy = series_precos.values.flatten()
+    media_movel = np.convolve(precos_numpy, weights, mode='valid')
 
     # ATUAL
-    preco_atual = series_precos.iloc[-1]
+    preco_atual = series_precos.iloc[-1].item()  
     media_atual = media_movel[-1]
     rsi_atual = rsi.iloc[-1].item()
 
@@ -52,7 +53,7 @@ def dados_calculate(acao):
         tendencia = "BAIXA"
 
     # VOLATILIDADE
-    retornos = np.diff(series_precos) / series_precos[:-1]
+    retornos = np.diff(precos_numpy) / precos_numpy[:-1]
     volatilidade = np.std(retornos) * 100
 
     print(f"Volatilidade: {volatilidade:.2f}%")
@@ -62,7 +63,7 @@ def dados_calculate(acao):
     
     # Gráfico 1: Preço e Média
     
-    ax1.plot(dados.index, series_precos, label='Preço', color='blue', alpha=0.6)
+    ax1.plot(dados.index, precos_numpy, label='Preço', color='blue', alpha=0.6)
     ax1.plot(dados.index[janela-1:], media_movel, label='Média (20)', color='orange', linestyle='--')
     ax1.set_title(f"Análise Técnica: {acao}")
     ax1.legend()
@@ -82,8 +83,7 @@ def dados_calculate(acao):
     print(f"✅ Gráfico salvo: {nome_arquivo}")
 
     print("Consultando Agente AI...")
-
-    # 🔴 ESTILO: Espaço vazio desnecessário acima
+    
     model = genai.GenerativeModel('gemini-2.5-flash')
 
     # Prompt feito com auxilio de IA generativa
